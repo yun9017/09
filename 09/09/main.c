@@ -6,19 +6,22 @@
 //
 
 #include <stdio.h>
+#define SIZE 5 //전처리. size 모두 5로 바꿔줌. 매크로
 
 int main(void) {
-    int i;
-    int grade[5]; //5명의 학생에 대한 시험성적 배열 선언
+    int i,average;
+    int sum;
+    int grade[SIZE];
     
-    grade[0] = 10;
-    grade[1] = 20;
-    grade[2] = 30;
-    grade[3] = 40;
-    grade[4] = 50;
-    for(i=0;i<5;i++)
+    sum = 0; //누적해서 연산할 땐 무조건 초기화해주기
+    for(i=0;i<SIZE;i++)
     {
-        printf("grade[%d] = %d\n", i, grade[i]); //d대신 i넣어도 동일
+        printf("학생 성적을 입력하세요: ");
+        scanf("%d", &grade[i]); //scanf에는 항상 &붙이기
+        sum += grade[i];
     }
+    
+    average = sum/SIZE;
+    printf("성적 평균: %d\n",average);
     return 0;
 }
